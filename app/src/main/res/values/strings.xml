@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Test project</string>
+    <string name="currency_list_empty_message">No currency found</string>
+    <string name="currency_list_search_empty_message">No result, try MCO</string>
+</resources>

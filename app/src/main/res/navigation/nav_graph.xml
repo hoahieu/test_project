@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/demo_fragment">
+    <fragment
+        android:id="@+id/demo_fragment"
+        android:name="com.hoahieu.demo.testproject.ui.base.DemoFragment"
+        android:label="Demo"
+        tools:layout="@layout/fragment_demo">
+        <action
+            android:id="@+id/action_DemoFragment_to_CurrencyListFragment"
+            app:destination="@id/currency_list_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/currency_list_fragment"
+        android:name="com.hoahieu.demo.testproject.ui.currencylist.CurrencyListFragment"
+        android:label="Currency List"
+        tools:layout="@layout/fragment_currency_list">
+        <argument
+            android:name="items"
+            app:argType="com.hoahieu.demo.testproject.ui.model.CurrencyInfo[]"
+            app:nullable="false" />
+    </fragment>
+</navigation>
