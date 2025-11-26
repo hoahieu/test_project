@@ -10,9 +10,10 @@ interface DispatcherProvider {
     val default: CoroutineDispatcher
 }
 
-val androidDispatcherProvider: DispatcherProvider = object : DispatcherProvider {
-    override val io = Dispatchers.IO
-    override val main = Dispatchers.Main
-    override val unconfined = Dispatchers.Unconfined
-    override val default = Dispatchers.Default
-}
+val androidDispatcherProvider: DispatcherProvider =
+    object : DispatcherProvider {
+        override val io = Dispatchers.IO
+        override val main = Dispatchers.Main
+        override val unconfined = Dispatchers.Unconfined
+        override val default = Dispatchers.Default
+    }

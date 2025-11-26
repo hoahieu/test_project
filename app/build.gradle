@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace 'com.hoahieu.demo.testproject'
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.hoahieu.demo.testproject"
         minSdk 24
-        targetSdk 35
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
@@ -59,7 +59,7 @@ dependencies {
     testImplementation libs.koin.test.junit4
 
     implementation libs.room.runtime
-    ksp libs.room.compiler
+    ksp(libs.room.compiler)
 
     testImplementation libs.junit
     testImplementation libs.kotlinx.coroutines.test

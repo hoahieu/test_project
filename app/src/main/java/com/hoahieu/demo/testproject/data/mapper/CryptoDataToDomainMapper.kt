@@ -4,11 +4,10 @@ import com.hoahieu.demo.testproject.data.model.CryptoDataModel
 import com.hoahieu.demo.testproject.domain.model.CurrencyDomainModel
 
 class CryptoDataToDomainMapper {
-    fun mapToDomain(cryptoDataModel: CryptoDataModel): CurrencyDomainModel {
-        return CurrencyDomainModel(
+    fun mapToDomain(cryptoDataModel: CryptoDataModel): CurrencyDomainModel =
+        CurrencyDomainModel(
             id = cryptoDataModel.id,
             name = cryptoDataModel.name,
-            code = cryptoDataModel.symbol
+            code = cryptoDataModel.symbol,
         )
-    }
 }

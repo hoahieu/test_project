@@ -6,11 +6,10 @@ import com.hoahieu.demo.testproject.domain.repository.CurrencyRepository
 interface GetCryptoListUseCase : UseCase<Unit, List<CurrencyDomainModel>>
 
 class GetCryptoListUseCaseImpl(
-    private val repository: CurrencyRepository
+    private val repository: CurrencyRepository,
 ) : GetCryptoListUseCase {
-    override suspend fun execute(parameter: Unit): Result<List<CurrencyDomainModel>> {
-        return runCatching {
+    override suspend fun execute(parameter: Unit): Result<List<CurrencyDomainModel>> =
+        runCatching {
             repository.getCryptoList()
         }
-    }
 }

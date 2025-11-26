@@ -32,12 +32,13 @@ class DemoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_demo, container, false)
-    }
+        savedInstanceState: Bundle?,
+    ): View? = inflater.inflate(R.layout.fragment_demo, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
         initView()
         initViewModel()
@@ -78,14 +79,13 @@ class DemoFragment : Fragment() {
             is DataFetched -> {
                 findNavController().navigate(
                     DemoFragmentDirections.actionDemoFragmentToCurrencyListFragment(
-                        state.currencies.toTypedArray()
-                    )
+                        state.currencies.toTypedArray(),
+                    ),
                 )
                 viewModel.clearState()
             }
 
             Init -> {
-
             }
         }
     }

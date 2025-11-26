@@ -28,14 +28,15 @@ class DemoViewModel(
     private val getCryptoUseCase: GetCryptoListUseCase,
     private val getAllCurrenciesUseCase: GetAllCurrenciesUseCase,
     private val currencyDomainToUiMapper: CurrencyDomainToUiMapper,
-    private val dispatcherProvider: DispatcherProvider
+    private val dispatcherProvider: DispatcherProvider,
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<DemoUiState>(Init)
     val uiState: StateFlow<DemoUiState> = _uiState
 
     fun clearData() {
         launchIo {
-            clearDataUseCase.execute(Unit)
+            clearDataUseCase
+                .execute(Unit)
                 .onSuccess {
                     _uiState.emit(DataCleared)
                 }
@@ -44,7 +45,8 @@ class DemoViewModel(
 
     fun generateData() {
         launchIo {
-            generateDataUseCase.execute(Unit)
+            generateDataUseCase
+                .execute(Unit)
                 .onSuccess {
                     _uiState.emit(DataGenerated)
                 }
@@ -53,21 +55,24 @@ class DemoViewModel(
 
     fun getFiats() {
         launchIo {
-            getFiatListUseCase.execute(Unit)
+            getFiatListUseCase
+                .execute(Unit)
                 .onSuccess(::notifyCurrencies)
         }
     }
 
     fun getCryptos() {
         launchIo {
-            getCryptoUseCase.execute(Unit)
+            getCryptoUseCase
+                .execute(Unit)
                 .onSuccess(::notifyCurrencies)
         }
     }
 
     fun getAllCurrencies() {
         launchIo {
-            getAllCurrenciesUseCase.execute(Unit)
+            getAllCurrenciesUseCase
+                .execute(Unit)
                 .onSuccess(::notifyCurrencies)
         }
     }
@@ -76,8 +81,8 @@ class DemoViewModel(
         viewModelScope.launch {
             _uiState.emit(
                 DataFetched(
-                    currencies.map(currencyDomainToUiMapper::mapToUi)
-                )
+                    currencies.map(currencyDomainToUiMapper::mapToUi),
+                ),
             )
         }
     }

@@ -15,13 +15,14 @@ class GetFiatListUseCaseImplTest {
 
     private val currencyRepository: CurrencyRepository = mock()
 
-    private val sampleData = listOf(
-        CurrencyDomainModel("1", "FIAT number 1", "FI1"),
-        CurrencyDomainModel("2", "FIAT number 2", "FI2"),
-        CurrencyDomainModel("3", "FIAT number 3", "FI3"),
-        CurrencyDomainModel("4", "FIAT number 4", "FI4"),
-        CurrencyDomainModel("5", "FIAT number 5", "FI5")
-    )
+    private val sampleData =
+        listOf(
+            CurrencyDomainModel("1", "FIAT number 1", "FI1"),
+            CurrencyDomainModel("2", "FIAT number 2", "FI2"),
+            CurrencyDomainModel("3", "FIAT number 3", "FI3"),
+            CurrencyDomainModel("4", "FIAT number 4", "FI4"),
+            CurrencyDomainModel("5", "FIAT number 5", "FI5"),
+        )
 
     @Before
     fun setup() {

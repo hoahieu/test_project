@@ -15,20 +15,18 @@ class CurrencyRepositoryImpl(
     private val cryptoDataToDomainMapper: CryptoDataToDomainMapper,
     private val fiatDataToDomainMapper: FiatDataToDomainMapper,
     private val cryptoRemoteDataSource: CryptoRemoteDataSource,
-    private val fiatRemoteDataSource: FiatRemoteDataSource
+    private val fiatRemoteDataSource: FiatRemoteDataSource,
 ) : CurrencyRepository {
     override suspend fun clearData() {
         cryptoLocalDataSource.clear()
         fiatLocalDataSource.clear()
     }
 
-    override suspend fun getFiatList(): List<CurrencyDomainModel> {
-        return fiatLocalDataSource.getAll().map(fiatDataToDomainMapper::mapToDomain)
-    }
+    override suspend fun getFiatList(): List<CurrencyDomainModel> =
+        fiatLocalDataSource.getAll().map(fiatDataToDomainMapper::mapToDomain)
 
-    override suspend fun getCryptoList(): List<CurrencyDomainModel> {
-        return cryptoLocalDataSource.getAll().map(cryptoDataToDomainMapper::mapToDomain)
-    }
+    override suspend fun getCryptoList(): List<CurrencyDomainModel> =
+        cryptoLocalDataSource.getAll().map(cryptoDataToDomainMapper::mapToDomain)
 
     override suspend fun getData() {
         clearData()

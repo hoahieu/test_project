@@ -12,7 +12,7 @@ import kotlinx.coroutines.withContext
 
 class CurrencyListViewModel(
     private val currencyInfoFilter: CurrencyInfoFilter,
-    private val dispatcherProvider: DispatcherProvider
+    private val dispatcherProvider: DispatcherProvider,
 ) : ViewModel() {
     private var data: List<CurrencyInfo> = emptyList()
     private val searchTerms = MutableStateFlow("")
@@ -36,7 +36,7 @@ class CurrencyListViewModel(
         viewModelScope.launch {
             withContext(dispatcherProvider.default) {
                 _result.emit(
-                    currencyInfoFilter.filter(data, query)
+                    currencyInfoFilter.filter(data, query),
                 )
             }
         }

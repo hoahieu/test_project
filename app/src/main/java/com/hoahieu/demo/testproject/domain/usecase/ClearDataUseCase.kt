@@ -5,11 +5,10 @@ import com.hoahieu.demo.testproject.domain.repository.CurrencyRepository
 interface ClearDataUseCase : UseCase<Unit, Unit>
 
 class ClearDataUseCaseImpl(
-    private val currencyRepository: CurrencyRepository
+    private val currencyRepository: CurrencyRepository,
 ) : ClearDataUseCase {
-    override suspend fun execute(parameter: Unit): Result<Unit> {
-        return runCatching {
+    override suspend fun execute(parameter: Unit): Result<Unit> =
+        runCatching {
             currencyRepository.clearData()
         }
-    }
 }

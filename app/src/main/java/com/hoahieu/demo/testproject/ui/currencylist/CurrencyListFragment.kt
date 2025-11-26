@@ -22,7 +22,9 @@ import com.hoahieu.demo.testproject.ui.model.CurrencyInfo
 import com.hoahieu.demo.testproject.ui.safeLaunch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CurrencyListFragment : Fragment(), MenuProvider {
+class CurrencyListFragment :
+    Fragment(),
+    MenuProvider {
     private val viewModel: CurrencyListViewModel by viewModel()
     private val args: CurrencyListFragmentArgs by navArgs()
     private var queryText: String = ""
@@ -34,16 +36,16 @@ class CurrencyListFragment : Fragment(), MenuProvider {
     private val emptyMessage: TextView
         get() = requireView().findViewById(R.id.currency_list_empty_message)
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_currency_list, container, false)
-    }
+        savedInstanceState: Bundle?,
+    ): View? = inflater.inflate(R.layout.fragment_currency_list, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
         initView()
         initViewModel()
@@ -64,7 +66,10 @@ class CurrencyListFragment : Fragment(), MenuProvider {
         }
     }
 
-    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+    override fun onCreateMenu(
+        menu: Menu,
+        menuInflater: MenuInflater,
+    ) {
         menuInflater.inflate(R.menu.currency_list_menu, menu)
         val searchItem = menu.findItem(R.id.currency_search)
         (searchItem.actionView as? SearchView)?.run {
@@ -79,7 +84,7 @@ class CurrencyListFragment : Fragment(), MenuProvider {
                         search(newText.orEmpty())
                         return true
                     }
-                }
+                },
             )
         }
     }
@@ -87,7 +92,10 @@ class CurrencyListFragment : Fragment(), MenuProvider {
     @SuppressLint("NotifyDataSetChanged")
     private fun showCurrencies(currencies: List<CurrencyInfo>) {
         when {
-            currencies.isNotEmpty() -> emptyGroup.visibility = View.GONE
+            currencies.isNotEmpty() -> {
+                emptyGroup.visibility = View.GONE
+            }
+
             queryText.isEmpty() -> {
                 emptyGroup.visibility = View.VISIBLE
                 emptyMessage.setText(R.string.currency_list_empty_message)
@@ -109,10 +117,9 @@ class CurrencyListFragment : Fragment(), MenuProvider {
         viewModel.search(query)
     }
 
-    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return when (menuItem.itemId) {
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean =
+        when (menuItem.itemId) {
             R.id.currency_search -> true
             else -> false
         }
-    }
 }

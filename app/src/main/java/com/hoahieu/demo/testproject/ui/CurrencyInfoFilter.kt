@@ -3,10 +3,19 @@ package com.hoahieu.demo.testproject.ui
 import com.hoahieu.demo.testproject.ui.model.CurrencyInfo
 
 class CurrencyInfoFilter {
-    fun filter(infos: List<CurrencyInfo>, query: String): List<CurrencyInfo> {
-        return when {
-            infos.isEmpty() -> emptyList()
-            query.isEmpty() || query.isBlank() -> infos
+    fun filter(
+        infos: List<CurrencyInfo>,
+        query: String,
+    ): List<CurrencyInfo> =
+        when {
+            infos.isEmpty() -> {
+                emptyList()
+            }
+
+            query.isEmpty() || query.isBlank() -> {
+                infos
+            }
+
             query.startsWith(' ') -> {
                 infos.filter { it.name.lowercase().contains(query.lowercase()) }
             }
@@ -18,5 +27,4 @@ class CurrencyInfoFilter {
                 }
             }
         }
-    }
 }

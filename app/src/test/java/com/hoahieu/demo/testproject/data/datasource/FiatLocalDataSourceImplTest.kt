@@ -36,11 +36,15 @@ class FiatLocalDataSourceImplTest {
 
     @Test
     fun `check fiatDao insertAll is called`() {
-        val input = listOf(
-            FiatDataModel(
-                "A", "B", "C", "D"
+        val input =
+            listOf(
+                FiatDataModel(
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                ),
             )
-        )
         runTest {
             classUnderTest.save(input)
         }

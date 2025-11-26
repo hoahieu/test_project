@@ -7,17 +7,16 @@ interface FiatRemoteDataSource {
 }
 
 class FiatRemoteDataSourceImpl : FiatRemoteDataSource {
-    override suspend fun getFiatList(): List<FiatDataModel> {
-        return sampleFiatList
-    }
+    override suspend fun getFiatList(): List<FiatDataModel> = sampleFiatList
 }
 
-private val sampleFiatList = listOf(
-    FiatDataModel("SGD", "Singapore Dollar", "$", "SGD"),
-    FiatDataModel("EUR", "Euro", "€", "EUR"),
-    FiatDataModel("GBP", "British Pound", "£", "GBP"),
-    FiatDataModel("HKD", "Hong Kong Dollar", "$", "HKD"),
-    FiatDataModel("JPY", "Japanese Yen", "¥", "JPY"),
-    FiatDataModel("AUD", "Australian Dollar", "$", "AUD"),
-    FiatDataModel("USD", "United States Dollar", "$", "USD")
-)
+private val sampleFiatList =
+    listOf(
+        FiatDataModel("SGD", "Singapore Dollar", "$", "SGD"),
+        FiatDataModel("EUR", "Euro", "€", "EUR"),
+        FiatDataModel("GBP", "British Pound", "£", "GBP"),
+        FiatDataModel("HKD", "Hong Kong Dollar", "$", "HKD"),
+        FiatDataModel("JPY", "Japanese Yen", "¥", "JPY"),
+        FiatDataModel("AUD", "Australian Dollar", "$", "AUD"),
+        FiatDataModel("USD", "United States Dollar", "$", "USD"),
+    )

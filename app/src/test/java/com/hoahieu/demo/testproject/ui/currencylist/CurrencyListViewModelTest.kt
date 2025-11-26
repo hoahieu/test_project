@@ -12,7 +12,7 @@ import kotlin.test.assertEquals
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class CurrencyListViewModelTest {
-    @get: Rule
+    @get:Rule
     var testRule = CoroutinesTestRule()
 
     private lateinit var classUnderTest: CurrencyListViewModel
@@ -20,25 +20,27 @@ class CurrencyListViewModelTest {
 
     @Before
     fun setup() {
-        classUnderTest = CurrencyListViewModel(
-            currencyInfoFilter,
-            testDispatcherProvider
-        )
+        classUnderTest =
+            CurrencyListViewModel(
+                currencyInfoFilter,
+                testDispatcherProvider,
+            )
     }
 
-    private val testData = listOf(
-        CurrencyInfo("1", "Foobar", "FBR"),
-        CurrencyInfo("2", "Barfoo", "BRF"),
-        CurrencyInfo("3", "Etherum Classic", "ETC"),
-        CurrencyInfo("4", "Coinclassic", "CET")
-    )
+    private val testData =
+        listOf(
+            CurrencyInfo("1", "Foobar", "FBR"),
+            CurrencyInfo("2", "Barfoo", "BRF"),
+            CurrencyInfo("3", "Etherum Classic", "ETC"),
+            CurrencyInfo("4", "Coinclassic", "CET"),
+        )
 
     @Test
     fun `set initial data and check the result`() {
         classUnderTest.setCurrencyList(testData)
         assertEquals(
             testData,
-            classUnderTest.result.value
+            classUnderTest.result.value,
         )
     }
 
@@ -49,7 +51,7 @@ class CurrencyListViewModelTest {
         val expectedOutput = listOf(CurrencyInfo("1", "Foobar", "FBR"))
         assertEquals(
             expectedOutput,
-            classUnderTest.result.value
+            classUnderTest.result.value,
         )
     }
 }

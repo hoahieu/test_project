@@ -58,7 +58,8 @@ class DemoFeatureTest {
         }
         onView(withId(R.id.currency_list_view)).check { view, _ ->
             assertTrue(
-                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty().isNotEmpty()
+                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty()
+                    .isNotEmpty(),
             )
         }
     }
@@ -72,7 +73,8 @@ class DemoFeatureTest {
         }
         onView(withId(R.id.currency_list_view)).check { view, _ ->
             assertTrue(
-                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty().isNotEmpty()
+                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty()
+                    .isNotEmpty(),
             )
         }
     }
@@ -86,7 +88,8 @@ class DemoFeatureTest {
         }
         onView(withId(R.id.currency_list_view)).check { view, _ ->
             assertTrue(
-                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty().isNotEmpty()
+                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty()
+                    .isNotEmpty(),
             )
         }
     }
@@ -100,7 +103,7 @@ class DemoFeatureTest {
         }
         onView(withId(R.id.currency_list_view)).check { view, _ ->
             assertTrue(
-                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty().isEmpty()
+                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty().isEmpty(),
             )
         }
     }
@@ -114,7 +117,7 @@ class DemoFeatureTest {
         }
         onView(withId(R.id.currency_list_view)).check { view, _ ->
             assertTrue(
-                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty().isEmpty()
+                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty().isEmpty(),
             )
         }
     }
@@ -128,9 +131,8 @@ class DemoFeatureTest {
         }
         onView(withId(R.id.currency_list_view)).check { view, _ ->
             assertTrue(
-                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty().isEmpty()
+                ((view as? RecyclerView)?.adapter as? CurrencyAdapter)?.items.orEmpty().isEmpty(),
             )
         }
     }
-
 }

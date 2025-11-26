@@ -36,11 +36,14 @@ class CryptoLocalDataSourceImplTest {
 
     @Test
     fun `check cryptoDao insertAll is called`() {
-        val input = listOf(
-            CryptoDataModel(
-                "A", "B", "C"
+        val input =
+            listOf(
+                CryptoDataModel(
+                    "A",
+                    "B",
+                    "C",
+                ),
             )
-        )
         runTest {
             classUnderTest.save(input)
         }

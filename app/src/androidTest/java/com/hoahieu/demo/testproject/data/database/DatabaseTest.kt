@@ -31,22 +31,24 @@ class DatabaseTest {
         database.close()
     }
 
-    private fun generateFiats() = List(5) { index ->
-        FiatDataModel(
-            id = "$index",
-            name = "Data $index",
-            code = "DAT$index",
-            symbol = "D$index"
-        )
-    }
+    private fun generateFiats() =
+        List(5) { index ->
+            FiatDataModel(
+                id = "$index",
+                name = "Data $index",
+                code = "DAT$index",
+                symbol = "D$index",
+            )
+        }
 
-    private fun generateCryptos() = List(9) { index ->
-        CryptoDataModel(
-            id = "CR$index",
-            name = "Crypto Number $index",
-            symbol = "C$index"
-        )
-    }
+    private fun generateCryptos() =
+        List(9) { index ->
+            CryptoDataModel(
+                id = "CR$index",
+                name = "Crypto Number $index",
+                symbol = "C$index",
+            )
+        }
 
     @Test
     fun writeFiatsThenRead() {

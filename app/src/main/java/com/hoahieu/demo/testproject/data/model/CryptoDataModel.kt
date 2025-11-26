@@ -8,5 +8,5 @@ import androidx.room.PrimaryKey
 data class CryptoDataModel(
     @PrimaryKey val id: String,
     @ColumnInfo(name = "name") val name: String,
-    @ColumnInfo(name = "symbol") val symbol: String
+    @ColumnInfo(name = "symbol") val symbol: String,
 )

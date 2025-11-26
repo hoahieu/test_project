@@ -9,5 +9,5 @@ data class FiatDataModel(
     @PrimaryKey val id: String,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "symbol") val symbol: String,
-    @ColumnInfo(name = "code") val code: String
+    @ColumnInfo(name = "code") val code: String,
 )

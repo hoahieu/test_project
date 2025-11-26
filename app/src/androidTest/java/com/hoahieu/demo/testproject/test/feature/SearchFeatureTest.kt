@@ -36,16 +36,20 @@ class SearchFeatureTest {
         checkListCountWithQuery("", 21)
     }
 
-    private val searchEditTextMatcher = withClassName(
-        CoreMatchers.containsString(SearchAutoComplete::class.simpleName)
-    )
+    private val searchEditTextMatcher =
+        withClassName(
+            CoreMatchers.containsString(SearchAutoComplete::class.simpleName),
+        )
 
-    private fun checkListCountWithQuery(query: String, expectedCount: Int) {
+    private fun checkListCountWithQuery(
+        query: String,
+        expectedCount: Int,
+    ) {
         onView(searchEditTextMatcher).perform(
-            clearText()
+            clearText(),
         )
         onView(searchEditTextMatcher).perform(
-            typeText(query)
+            typeText(query),
         )
         onView(withId(R.id.currency_list_view)).check { view, _ ->
             val actualCount =

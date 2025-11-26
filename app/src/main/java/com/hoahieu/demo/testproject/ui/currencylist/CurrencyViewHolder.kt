@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hoahieu.demo.testproject.R
 import com.hoahieu.demo.testproject.ui.model.CurrencyInfo
 
-class CurrencyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class CurrencyViewHolder(
+    view: View,
+) : RecyclerView.ViewHolder(view) {
     private val iconText: TextView = view.findViewById(R.id.cell_currency_icon_text)
     private val name: TextView = view.findViewById(R.id.cell_currency_name)
     private val code: TextView = view.findViewById(R.id.cell_currency_code)

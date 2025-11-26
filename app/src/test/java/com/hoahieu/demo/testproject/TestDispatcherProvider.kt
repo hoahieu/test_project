@@ -5,9 +5,10 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 
 @OptIn(ExperimentalCoroutinesApi::class)
-val testDispatcherProvider = object : DispatcherProvider {
-    override val io = UnconfinedTestDispatcher()
-    override val main = UnconfinedTestDispatcher()
-    override val unconfined = UnconfinedTestDispatcher()
-    override val default = UnconfinedTestDispatcher()
-}
+val testDispatcherProvider =
+    object : DispatcherProvider {
+        override val io = UnconfinedTestDispatcher()
+        override val main = UnconfinedTestDispatcher()
+        override val unconfined = UnconfinedTestDispatcher()
+        override val default = UnconfinedTestDispatcher()
+    }

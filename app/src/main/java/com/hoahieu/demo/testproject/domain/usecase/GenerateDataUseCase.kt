@@ -5,11 +5,10 @@ import com.hoahieu.demo.testproject.domain.repository.CurrencyRepository
 interface GenerateDataUseCase : UseCase<Unit, Unit>
 
 class GenerateDataUseCaseImpl(
-    private val currencyRepository: CurrencyRepository
+    private val currencyRepository: CurrencyRepository,
 ) : GenerateDataUseCase {
-    override suspend fun execute(parameter: Unit): Result<Unit> {
-        return runCatching {
+    override suspend fun execute(parameter: Unit): Result<Unit> =
+        runCatching {
             currencyRepository.getData()
         }
-    }
 }

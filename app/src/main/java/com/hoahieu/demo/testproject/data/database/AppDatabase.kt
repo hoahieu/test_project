@@ -8,11 +8,12 @@ import com.hoahieu.demo.testproject.data.model.FiatDataModel
 @Database(
     entities = [
         CryptoDataModel::class,
-        FiatDataModel::class
+        FiatDataModel::class,
     ],
-    version = 1
+    version = 1,
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun cryptoDao(): CryptoDao
+
     abstract fun fiatDao(): FiatDao
 }
